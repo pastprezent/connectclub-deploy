@@ -210,6 +210,10 @@ schedules:
     schedule: "* * * * *"
     command: bin/console CloseRoomWithoutModeratorsCommand
 
+  close-empty-online-video-rooms:
+    schedule: "* * * * *"
+    command: bin/console CloseEmptyOnlineVideoRoomsCommand
+
   send-event-schedule-notifications:
     schedule: "* * * * *"
     command: bin/console SendEventScheduleNotification
