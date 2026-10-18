@@ -13,6 +13,10 @@ services:
       JVB_MIN_POOL_SIZE: 1
       JVB_AUDIO_PROCESSOR_HTTP_URL: http://rtp-audio-processor:8888/
       JVB_AUDIO_PROCESSOR_IP: rtp-audio-processor
+      # Default in jvbuster is http://127.0.0.1:7893 (inside the JVB container).
+      # Without this, CONFERENCE_EXPIRED / ENDPOINT_* never reach the API → rooms
+      # stay live in «Идёт сейчас» forever after leave (started_at set, done_at null).
+      JVB_CONFERENCE_NOTIFICATION_URL: http://api-web/api/v2/video-room/event
       SECURITY_JWT_PUBLIC_KEY: |
         -----BEGIN PUBLIC KEY-----
         MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKRCvyuWidgIZGVf/MuO0MLJIJyuArLo
